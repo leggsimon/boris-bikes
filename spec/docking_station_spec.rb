@@ -18,6 +18,11 @@ describe DockingStation do
     expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
   end
 
+  it 'can change capacity' do
+    subject.capacity = 55
+    expect(subject.capacity).to eq 55
+  end
+
 
   describe 'release_bike' do
     it 'raises an error when there are no bikes available' do
