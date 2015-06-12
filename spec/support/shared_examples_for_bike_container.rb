@@ -15,6 +15,19 @@ shared_examples_for BikeContainer do
     end
   end
 
+  describe 'add bike' do
+    it 'can add a bike to container' do
+      subject.add_bike double :bike
+      expect(subject).not_to be_empty
+    end
+
+    it 'raises an error when full' do
+      subject.capacity.times {subject.add_bike double :bike}
+      expect{subject.add_bike double :bike}.to raise_error 'Container full'
+    end
+  end
+
+
 
 
 
